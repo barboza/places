@@ -1,6 +1,5 @@
 p#notice = notice
-p
-  = request.location.city
+
 p
   strong Name:
   = @place.name
@@ -13,8 +12,14 @@ p
 p
   strong Longitude:
   = @place.longitude
-= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@place.latitude}%2C#{@place.longitude}"
-
+p
+  = image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@place.latitude}%2C#{@place.longitude}"
+p
+  h3 Places Near
+  ul
+    - for place in @place.nearbys(50)
+      li = link_to place.address, place
+      = "(#{place.distance.to_f.round(3)} Km)"
 = link_to 'Edit', edit_place_path(@place)
 '|
 = link_to 'Back', places_path
