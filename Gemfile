@@ -23,6 +23,9 @@ gem 'rails-i18n'
 #gem 'omniauth-facebook', '~> 1.4.1'
 #gem 'omniauth-twitter', '~> 0.0.14'
 
+# Geolocation
+gem 'geocoder'
+
 # Frontend stuff
 gem 'jquery-rails'
 gem 'slim-rails'
