@@ -1,3 +1,12 @@
 h1 Home#index
 p = "You are at #{request.location.city}, #{request.location.country}"
 p = link_to 'Places', places_path
+
+- if request.location.city == ""
+  h3 Places:
+- else
+  h3 Places near you:
+ul
+  - for place in @places
+    li = link_to place.address, place
+
