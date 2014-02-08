@@ -4,6 +4,8 @@ Places::Application.routes.draw do
 
   root :to => "home#index"
 
+  get '/image/:x/:y' => 'home#image_redirect'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
